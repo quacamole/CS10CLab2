@@ -1,0 +1,3 @@
+C:/Users/keraw/CLionProjects/CS10CLab2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/keraw/CLionProjects/CS10CLab2/cmake-build-debug/CMakeFiles/CS10CLab2.dir
+C:/Users/keraw/CLionProjects/CS10CLab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
