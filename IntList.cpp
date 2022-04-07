@@ -5,7 +5,7 @@
 #include <ostream>
 #include "IntList.h"
 
-IntList::IntList(){
+IntList::IntList(){                 //works
     dummyHead = new IntNode(0);
     dummyTail =new IntNode(0);
 
@@ -13,11 +13,20 @@ IntList::IntList(){
     dummyTail->prev = dummyHead;
 }
 
-IntList::~IntList(){
-    if (dummyHead == nullptr && dummyTail == nullptr) {
-        return;
+IntList::~IntList(){               //works
+    IntNode* next = dummyHead->next;
+    IntNode* curr = dummyHead;
+
+    while (next != nullptr)
+    {
+        delete curr;
+        curr = next;
+        next = next->next;
     }
-    
+
+    delete curr;
+    curr = nullptr;
+    next = nullptr;
 }
 
 void IntList::push_front(int value){        //works
@@ -27,12 +36,23 @@ void IntList::push_front(int value){        //works
     temp->prev = dummyHead;
     dummyHead->next = temp;
 }
-void IntList::pop_front(){                  //To do
-    std::cout << "WRITE ME: pop_front" << endl;
+void IntList::pop_front(){                  //works
+    if (dummyHead != dummyTail)
+    {
+        IntNode* temp = dummyHead->next;
+        temp->next->prev = dummyHead;
+        dummyHead->next = temp->next;
+        delete temp;
+        temp = nullptr;
+    }
 }
-void IntList::push_back(int value)         //To do
+void IntList::push_back(int value)         //works
 {
-    std::cout << "WRITE ME: push_back()" << endl;
+    IntNode* temp = new IntNode(value);
+    temp->next = dummyTail;
+    temp->prev = dummyTail->prev;
+    dummyTail->prev->next = temp;
+    dummyTail->prev = temp;
 }
 void IntList::pop_back()                        //works
 {
@@ -54,9 +74,22 @@ bool IntList::empty() const {               //works
     return false;
 }
 
-ostream& operator<<(ostream& out, const IntList& rhs)      //To do
+ostream& operator<<(ostream& out, const IntList& rhs)      //works
 {
-    out << "WRITE ME: operator<<" << endl;
+    IntNode* curr = rhs.dummyHead->next;
+
+    while (curr != rhs.dummyTail)
+    {
+        out << curr->data;
+
+        if (curr->next != rhs.dummyTail)
+        {
+            out << " ";
+        }
+
+        curr = curr->next;
+    }
+
     return out;
 }
 
