@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/keraw/CLionProjects/CS10CLab2/cmake-build-debug",
-		"source" : "C:/Users/keraw/CLionProjects/CS10CLab2"
+		"build" : "C:/Users/keraw/OneDrive/Documents/GitHub/CS10CLab2/.gitignore/cmake-build-debug",
+		"source" : "C:/Users/keraw/OneDrive/Documents/GitHub/CS10CLab2/.gitignore"
 	},
 	"version" : 
 	{
